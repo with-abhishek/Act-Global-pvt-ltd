@@ -8,14 +8,21 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.SequenceGenerator;
 import lombok.Data;
 
 @Entity
 @Data
 public class Student {
 
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
+//	{ if you wanna be gererate a sequence pattern in an table	  }
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "custom_seq")
+	@SequenceGenerator(name = "custom_seq", sequenceName = "cs_branch", initialValue = 20250101, allocationSize = 1)
+
 	private Long id ;
 	private String name;
 	private String gender;

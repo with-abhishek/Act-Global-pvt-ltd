@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.model.Student;
 import com.example.service.StudentService;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/studentAPI")
 public class StudentController {
@@ -23,15 +25,9 @@ public class StudentController {
 	@Autowired
 	private StudentService studentService;
 	
-//	@GetMapping("/")
-//	public String homePage() {
-//		return "<<<<<<<Welcome to Spring boot Applications>>>>>>>";
-//	}
-	
-	
 	@PostMapping("/addStudent")
 	public String SaveStudent(@RequestBody  Student student) {
-		System.out.println(student.getName());
+//		System.out.println(student.getName());
 		studentService.saveStudent(student);
 	
 		return "save successfully"; 

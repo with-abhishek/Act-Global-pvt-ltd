@@ -1,0 +1,214 @@
+/* App.css */
+
+/* Global Reset & Base Setup */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Background Image */
+body {
+  background: url('bgImage.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+  transition: background-color 0.3s ease-in-out;
+  position: relative;
+}
+
+/* Overlay for text readability */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* Dark semi-transparent overlay */
+  z-index: -1;
+}
+
+/* Responsive body padding */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+}
+
+/* Main wrapper */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Card wrapper */
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+/* Form labels */
+label {
+  font-weight: 600;
+  color: #444;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 30px;
+  font-size: 16px;
+  padding: 8px 20px;
+  margin: 5px;
+}
+
+/* Home page */
+.home-container {
+  height: 100vh;
+  background: transparent;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.home-container h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.home-container p {
+  font-size: 1.2rem;
+  margin-bottom: 0px;
+}
+
+.home-buttons .btn {
+  background: white;
+  color: #007bff;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+
+.home-buttons .btn:hover {
+  background: #f8f9fa;
+}
+
+/* Table */
+.table-container {
+  overflow-x: auto;
+}
+
+.table th {
+  background: #343a40;
+  color: #fff;
+  text-align: center;
+}
+
+.table td {
+  text-align: center;
+}
+
+.table .btn {
+  font-size: 14px;
+  padding: 5px 15px;
+}
+
+/* View Page */
+.profile-view-card {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  max-width: 700px;
+  margin: 50px auto;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.profile-view-card h2 {
+  color: #2c2f35;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  row-gap: 20px;
+  column-gap: 10px;
+  font-size: 1.05rem;
+}
+
+.label {
+  font-weight: 600;
+  color: #555;
+}
+
+.value {
+  color: #222;
+}
+
+.course-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.course-list li {
+  margin-bottom: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-view-card {
+    padding: 25px 20px;
+    margin: 30px 15px;
+  }
+
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .label {
+    margin-top: 10px;
+  }
+
+  .container {
+    padding: 15px;
+  }
+}
+
+/* Add Student page */
+.card {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Buttons Styling */
+.btn-success {
+  background-color: #198754;
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #157347;
+}
+
+.btn-outline-danger:hover,
+.btn-outline-success:hover {
+  opacity: 0.85;
+}
+
+/* Edit Student page */
+.btn-primary {
+  background-color: #4f46e5;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #4338ca;
+}

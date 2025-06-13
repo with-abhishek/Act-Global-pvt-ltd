@@ -17,6 +17,8 @@ import com.example.repository.StudentRepo;
 public class StudentService {
 	@Autowired
 	private StudentRepo studentRepo;
+	@Autowired
+	private CourseRepo courseRepo;
 	public void saveStudent(Student student) {
 //		System.out.println(student.getName());
 		studentRepo.save(student);
@@ -38,17 +40,29 @@ public class StudentService {
 	    if (optionalStudent.isPresent()) {
 	        Student existingStudent = optionalStudent.get();
 
-	        // Update fields
+	        // Update basic fields
 	        existingStudent.setName(student.getName());
 	        existingStudent.setGender(student.getGender());
 	        existingStudent.setEmail(student.getEmail());
 	        existingStudent.setMobileNo(student.getMobileNo());
 
-	        // If new course list is provided, replace old one
-	        if (student.getCourses() != null && !student.getCourses().isEmpty()) {
-	            existingStudent.getCourses().clear();
-	            existingStudent.getCourses().addAll(student.getCourses());
+	        // Clear old courses
+	        existingStudent.getCourses().clear();
+
+	        // Add updated courses
+	        List<Course> updatedCourses = new ArrayList<>();
+	        for (Course course : student.getCourses()) {
+	            if (course.getId() != null) {
+	                // Fetch from DB to ensure it's a managed entity
+	                Optional<Course> existingCourse = courseRepo.findById(course.getId());
+	                existingCourse.ifPresent(updatedCourses::add);
+	            } else {
+	                // If it's a new course (no ID), add as is
+	                updatedCourses.add(course);
+	            }
 	        }
+
+	        existingStudent.getCourses().addAll(updatedCourses);
 
 	        studentRepo.save(existingStudent);
 	        return "Update Successfully";
@@ -56,6 +70,7 @@ public class StudentService {
 	        return "Student not found";
 	    }
 	}
+
 
 
 	public Optional<Student> getStudentById(Long id) {
