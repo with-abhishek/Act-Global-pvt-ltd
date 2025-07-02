@@ -1,0 +1,485 @@
+/* App.css */
+
+/* Global Reset & Base Setup */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Background Image */
+body {
+  background: url('bgImage.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+  transition: background-color 0.3s ease-in-out;
+  position: relative;
+}
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: linear-gradient(to right, #667eea, #764ba2);
+  color: white;
+  font-weight: 500;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+.role-badge i {
+  font-size: 1rem;
+}
+
+
+/* Navbar */
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 12px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Profile section */
+.profile-info {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  gap: 10px;
+}
+
+.profile-icon {
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+/* Center navigation */
+.navbar-center {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  font-weight: 500;
+  background: none;
+  border: none;
+  color: #333;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.nav-link:hover {
+  background-color: #e8e8e8;
+}
+
+/* Right section: search + logout */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-input {
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 160px;
+}
+
+.btn-search,
+.btn-logout {
+  padding: 6px 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+.btn-search:hover,
+.btn-logout:hover {
+  background-color: #0056b3;
+}
+
+/* Section styling */
+.section {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.section:nth-of-type(even) {
+  background-color: #f8f9fa;
+}
+
+.section h1,
+.section h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.section p {
+  max-width: 800px;
+  margin: 0 auto 20px;
+  color: #555;
+}
+
+/* Services list */
+.services-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.services-section ul li {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+/* Action Buttons */
+.actions {
+  margin-top: 20px;
+}
+
+.action-button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  font-weight: 500;
+  border-radius: 5px;
+  display: inline-block;
+  transition: background 0.3s;
+}
+
+.action-button:hover {
+  background-color: #218838;
+}
+
+/* Error Toast */
+.error-toast {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background-color: #ff4d4f;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  z-index: 999;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .navbar-left,
+  .navbar-right,
+  .navbar-center {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .search-input {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .section {
+    padding: 40px 15px;
+  }
+
+  .action-button {
+    display: block;
+    margin: 10px auto;
+  }
+}
+
+/* Add any additional styling to match your theme */
+
+
+
+
+/* Main Content */
+.main-content {
+  padding: 50px 20px;
+}
+
+.main-content h1 {
+  font-size: 2.8rem;
+  color: #003366;
+  margin-bottom: 15px;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .navbar-center {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar-right {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background-color: #f9f9f9;
+  }
+}
+
+
+
+/* Table */
+.table-container {
+  overflow-x: auto;
+}
+
+.table th {
+  background: #343a40;
+  color: #fff;
+  text-align: center;
+}
+
+.table td {
+  text-align: center;
+}
+
+.table .btn {
+  font-size: 14px;
+  padding: 5px 15px;
+}
+
+/* View Page */
+.profile-view-card {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  max-width: 700px;
+  margin: 50px auto;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.profile-view-card h2 {
+  color: #2c2f35;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  row-gap: 20px;
+  column-gap: 10px;
+  font-size: 1.05rem;
+}
+
+.label {
+  font-weight: 600;
+  color: #555;
+}
+
+.value {
+  color: #222;
+}
+
+.course-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.course-list li {
+  margin-bottom: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-view-card {
+    padding: 25px 20px;
+    margin: 30px 15px;
+  }
+
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .label {
+    margin-top: 10px;
+  }
+
+  .container {
+    padding: 15px;
+  }
+}
+
+/* Add Student page */
+.card {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Buttons Styling */
+.btn-success {
+  background-color: #198754;
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #157347;
+}
+
+.btn-outline-danger:hover,
+.btn-outline-success:hover {
+  opacity: 0.85;
+}
+
+/* Edit Student page */
+.btn-primary {
+  background-color: #4f46e5;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #4338ca;
+}
+
+/* LoginForm.css */
+/* src/components/LoginForm.css */
+
+.login-container {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+/* Style for the login/register footer link */
+.auth-footer {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.register-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
+
+
+.role-switch {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 25px;
+}
+
+.role-switch button {
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  background-color: #f1f1f1;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+  margin: 0 5px;
+}
+
+.role-switch button:hover {
+  background-color: #e0e0e0;
+}
+
+.role-switch button.active {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+.login-form h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.login-form button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form button[type="submit"]:hover {
+  background-color: #3b7ccc;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}

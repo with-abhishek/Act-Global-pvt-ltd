@@ -26,7 +26,7 @@ function StudentList() {
 
   return (
     <div>
-      <h2 className="mb-4 text-center ">Student List</h2>
+      <h2 className="mb-4 text-center text-danger text-size-b ">Student List</h2>
       <table className="table table-bordered table-striped">
         <thead className="table-dark">
           <tr>

@@ -24,38 +24,34 @@ public class StudentController {
 
 	@Autowired
 	private StudentService studentService;
-	
+
 	@PostMapping("/addStudent")
-	public String SaveStudent(@RequestBody  Student student) {
+	public String SaveStudent(@RequestBody Student student) {
 //		System.out.println(student.getName());
-		studentService.saveStudent(student);
-	
-		return "save successfully"; 
+		return studentService.saveStudent(student);
+
 	}
-	
-	
+
 	@GetMapping("/getAll")
-	public List<Student> getStudent(){
+	public List<Student> getStudent() {
 		return studentService.getAllStudent();
 	}
-	
+
 	@DeleteMapping("/deleteStudent")
-	public void deleteStudent(@RequestParam Long id) {
-		studentService.deleteStudent(id);
-		
+	public String deleteStudent(@RequestParam Long id) {
+		return studentService.deleteStudent(id);
+
 	}
-	
+
 	@PutMapping("/updateStudent")
-	public String updateStudent(@RequestParam Long id , @RequestBody Student student ) {
+	public String updateStudent(@RequestParam Long id, @RequestBody Student student) {
 		System.out.println(student.getCourses().toString());
 		return studentService.updateStudent(id, student);
-//		return "running update API's......";
 	}
-	
+
 	@GetMapping("/getStudent")
 	public Optional<Student> getStudent(@RequestParam Long id) {
-		return studentService.getStudentById(id);}
-	
-	
-	
+		return studentService.getStudentById(id);
+	}
+
 }
